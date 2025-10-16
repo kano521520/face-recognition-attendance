@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Details - Face Recognition System</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">FR</div>
+                <div class="logo-text">
+                    <h1>Location Details</h1>
+                    <p id="location-subtitle">Detailed attendance information</p>
+                </div>
+            </div>
+            <div class="user-info">
+                <button class="btn-back" onclick="goBack()">← Back to Dashboard</button>
+                <div class="user-avatar">AJ</div>
+            </div>
+        </header>
+        
+        <div class="location-header-details">
+            <div class="location-info-card">
+                <h2 id="location-title">Location Name</h2>
+                <p id="location-address">Address will be loaded here</p>
+                <div class="location-stats-overview">
+                    <div class="stat-large">
+                        <div class="stat-value" id="total-checkins">0</div>
+                        <div class="stat-label">Total Check-ins Today</div>
+                    </div>
+                    <div class="stat-large">
+                        <div class="stat-value" id="active-sensors">0</div>
+                        <div class="stat-label">Active Sensors</div>
+                    </div>
+                    <div class="stat-large">
+                        <div class="stat-value" id="attendance-rate">0%</div>
+                        <div class="stat-label">Attendance Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="dashboard">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Attendance Trend</div>
+                    <div class="card-action">Last 7 Days</div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="locationChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Sensor Details</div>
+                    <div class="card-action">Manage</div>
+                </div>
+                <div class="sensor-details-list" id="sensor-details">
+                    <!-- Sensor details will be loaded here -->
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Recent Check-ins</div>
+                <div class="card-action">View All</div>
+            </div>
+            <div class="checkins-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Employee</th>
+                            <th>Time</th>
+                            <th>Sensor</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recent-checkins">
+                        <!-- Check-in data will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Face Recognition Attendance System &copy; 2023. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/location.js"></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition Attendance System</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">FR</div>
+                <div class="logo-text">
+                    <h1>Face Recognition Attendance</h1>
+                    <p>Smart attendance tracking system</p>
+                </div>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">AJ</div>
+                <div>
+                    <div>Admin User</div>
+                    <div style="font-size: 12px; color: var(--text-light);">System Administrator</div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="dashboard">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Today's Attendance Overview</div>
+                    <div class="card-action">View Details</div>
+                </div>
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-label">Total Check-ins</div>
+                        <div class="stat-value">247</div>
+                        <div class="stat-label">+12% from yesterday</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">On Time</div>
+                        <div class="stat-value">218</div>
+                        <div class="stat-label">88.3% rate</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Late Arrivals</div>
+                        <div class="stat-value">29</div>
+                        <div class="stat-label">11.7% rate</div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="attendanceChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Face Recognition Sensors</div>
+                    <div class="card-action">Manage Sensors</div>
+                </div>
+                <div class="sensor-grid">
+                    <div class="sensor-item">
+                        <div class="sensor-icon">C1</div>
+                        <div class="sensor-info">
+                            <h3>Main Entrance</h3>
+                            <p>Resolution: 1080p | FPS: 30</p>
+                        </div>
+                        <div class="sensor-status status-active">Active</div>
+                    </div>
+                    <div class="sensor-item">
+                        <div class="sensor-icon">C2</div>
+                        <div class="sensor-info">
+                            <h3>Cafeteria</h3>
+                            <p>Resolution: 720p | FPS: 25</p>
+                        </div>
+                        <div class="sensor-status status-active">Active</div>
+                    </div>
+                    <div class="sensor-item">
+                        <div class="sensor-icon">C3</div>
+                        <div class="sensor-info">
+                            <h3>Conference Room A</h3>
+                            <p>Resolution: 1080p | FPS: 30</p>
+                        </div>
+                        <div class="sensor-status status-warning">Needs Calibration</div>
+                    </div>
+                    <div class="sensor-item">
+                        <div class="sensor-icon">C4</div>
+                        <div class="sensor-info">
+                            <h3>North Wing</h3>
+                            <p>Resolution: 4K | FPS: 60</p>
+                        </div>
+                        <div class="sensor-status status-active">Active</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="location-section">
+            <div class="location-header">
+                <div class="location-title">Location Data</div>
+                <div class="card-action" id="addLocationBtn">Add New Location</div>
+            </div>
+            <div class="location-list">
+                <div class="location-card active" data-location="headquarters">
+                    <div class="location-name">Headquarters - Main Building</div>
+                    <div>123 Tech Street, Innovation District</div>
+                    <div class="location-details">
+                        <div class="location-stat">
+                            <div class="location-stat-value">156</div>
+                            <div class="location-stat-label">Today's Check-ins</div>
+                        </div>
+                        <div class="location-stat">
+                            <div class="location-stat-value">4</div>
+                            <div class="location-stat-label">Active Sensors</div>
+                        </div>
+                    </div>
+                    <div class="location-actions">
+                        <button class="btn-view" data-location="headquarters">View Details</button>
+                    </div>
+                </div>
+                <div class="location-card" data-location="rd-center">
+                    <div class="location-name">Research & Development Center</div>
+                    <div>456 Science Avenue, Tech Park</div>
+                    <div class="location-details">
+                        <div class="location-stat">
+                            <div class="location-stat-value">73</div>
+                            <div class="location-stat-label">Today's Check-ins</div>
+                        </div>
+                        <div class="location-stat">
+                            <div class="location-stat-value">2</div>
+                            <div class="location-stat-label">Active Sensors</div>
+                        </div>
+                    </div>
+                    <div class="location-actions">
+                        <button class="btn-view" data-location="rd-center">View Details</button>
+                    </div>
+                </div>
+                <div class="location-card" data-location="regional-office">
+                    <div class="location-name">Regional Office - East</div>
+                    <div>789 Business Road, Commerce Zone</div>
+                    <div class="location-details">
+                        <div class="location-stat">
+                            <div class="location-stat-value">42</div>
+                            <div class="location-stat-label">Today's Check-ins</div>
+                        </div>
+                        <div class="location-stat">
+                            <div class="location-stat-value">2</div>
+                            <div class="location-stat-label">Active Sensors</div>
+                        </div>
+                    </div>
+                    <div class="location-actions">
+                        <button class="btn-view" data-location="regional-office">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Face Recognition Attendance System &copy; 2023. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
